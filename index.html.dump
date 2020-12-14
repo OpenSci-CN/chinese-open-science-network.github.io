@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>CHINESE OPEN SCIENCE</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Custom styles -->
+<!--   <style>
+    body{
+      
+    }
+  </style> -->
+</head>
+<body>
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark primary-color mb-4">
+    <a class="navbar-brand" href="#"><strong>OPEN SCIENCE</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Opportunities</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-github"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-youtube"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row mr-1">
+        <div class="jumbotron">
+            <h2 class="h1-responsive">CHINESE OPEN SCIENCE</h2>
+            <p class="lead">The Transcontinental Computational Psychiatry Workgroup (TCPW) organizes a monthly web-based meeting and a computational psychiatry satellite meeting with the Society of Biological Psychiatry. </p>
+            <hr class="my-2">
+            <h5>You should know...</h5>
+            <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.
+            </p>
+            <a class="btn btn-primary btn-lg" role="button">Learn more</a>
+            <a class="btn btn-primary btn-lg" role="button">Members</a>
+        </div>
+      </div>
+
+      <div class="row mr-1">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Latest Post</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Next meeting</h6>
+            <p class="card-text">Diffusion MRI (dMRI) is being used increasingly in studies of the brain and other parts of the body for its ability to provide quantitative measures that are sensitive to changes in tissue microstructure. There is strong interest in reliable combination of data acquired on different MRI scanners and/or with different protocols to increase the statistical power and sensitivity of dMRI studies, with obvious benefits in trials and multi-centre research, particularly in rare diseases or with difficult-to-recruit participants. This talk focuses...</p>
+            <a href="#!" class="card-link">Read more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row  mr-1">
+        <!-- Card deck -->
+        <div class="card-deck">
+
+          <!-- Card -->
+          <div class="card mb-4">
+
+            <!--Card content-->
+            <div class="card-body">
+
+              <!--Title-->
+              <h4 class="card-title">(previous post 2)</h4>
+              <!--Text-->
+              <p class="card-text">Diffusion MRI (dMRI) is being used increasingly in studies of the brain and other parts of t...</p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+            </div>
+
+          </div>
+          <!-- Card -->
+
+          <!-- Card -->
+          <div class="card mb-4 ">
+
+            <!--Card content-->
+            <div class="card-body">
+
+              <!--Title-->
+              <h4 class="card-title">(previous post 3)</h4>
+              <!--Text-->
+              <p class="card-text">Diffusion MRI (dMRI) is being used increasingly in studies of the the brain and other parts of t ...</p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+            </div>
+
+          </div>
+          <!-- Card -->
+
+          <!-- Card -->
+          <div class="card mb-4">
+
+            <!--Card content-->
+            <div class="card-body d-flex align-items-center">
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn btn-outline-primary btn-lg ">More articles</button>
+
+            </div>
+
+          </div>
+          <!-- Card -->
+
+        </div>
+        <!-- Card deck -->
+      </div>
+    </div>
+    <!-- <div class="col-md-1 "></div> -->
+    <div class="col-md-4">
+      <div class="card  mb-4">
+        <div class="card-header primary-color white-text">
+          Forthcoming meetings
+        </div>
+        <div class="list-group">
+          <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+            <p class="mb-2">Multi-center diffusion MRI studies: problems, solutions, and open challenges</p>
+            <small class="text-muted">Chantal Tax Dec 15th 2020</small>
+          </a>
+          <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+            <p class="mb-2">Uncovering the organization of semantic knowledge and applications for Alzheimer's disease</p>
+            <small class="text-muted">Jeffrey Zemla Jan 08th 2021</small>
+          </a>
+          <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+            <p class="mb-2">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+              blandit.</p>
+            <small class="text-muted">Donec id elit non mi porta.</small>
+          </a>
+        </div>
+      </div>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Positions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Friends</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="list-group">
+            <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+            </a>
+            <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+            </a>
+            <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+            </a>
+            <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+            </a>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
+    locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
+    blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+    Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
+    PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS
+    salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+    sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+    stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>
+      </div>
+        
+
+
+      
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4 primary-color">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">CHINESE OPEN SCIENCE</h5>
+        <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">漏 2020 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a> </br>Designed by: <a href="https://github.com/ray306" target="_blank">Jinbiao Yang</a> @ Chinese Open Science</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
