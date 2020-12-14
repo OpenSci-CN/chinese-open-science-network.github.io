@@ -85,7 +85,7 @@
             <p class="lead">The Transcontinental Computational Psychiatry Workgroup (TCPW) organizes a monthly web-based meeting and a computational psychiatry satellite meeting with the Society of Biological Psychiatry. </p>
             <hr class="my-2">
             <h5>You should know...</h5>
-            <p>We hope to foster discussion and exchange between those involved in computational psychiatry—a rapidly growing, highly multidisciplinary field.
+            <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.
             </p>
             <a class="btn btn-primary btn-lg" role="button">Learn more</a>
             <a class="btn btn-primary btn-lg" role="button">About us</a>
@@ -374,7 +374,7 @@
 
         <!-- Content -->
         <h5 class="text-uppercase">CHINESE OPEN SCIENCE</h5>
-        <p>We hope to foster discussion and exchange between those involved in computational psychiatry—a rapidly growing, highly multidisciplinary field.</p>
+        <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.</p>
 
       </div>
       <!-- Grid column -->
@@ -436,7 +436,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+  <div class="footer-copyright text-center py-3">漏 2020 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a> </br>Designed by: <a href="https://github.com/ray306" target="_blank">Jinbiao Yang</a> @ Chinese Open Science</a>
   </div>
   <!-- Copyright -->
