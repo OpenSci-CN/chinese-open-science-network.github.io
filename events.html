@@ -185,12 +185,14 @@
      }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
         new_event = '<div class="card mb-4 "> <div class="card-header">'+
-                    record.get('Date').slice(0,10)+',  '+record.get('Date').slice(11,16)+',  Topics: '+record.get('Topics').join(',')+
+                    record.get('Date').slice(0,10)+',  '+record.get('Date').slice(11,16)+
                     '</div> <div class="card-body"> <h4 class="card-title">'+
                     record.get("Title")+
                     '</h4> <h5 class="card-title font-italic">'+
                     record.get("Speaker")+
-                    '</h6> <p>'+
+                    '</h5> <h5 class="card-title font-italic">'+
+                    record.get("Location")+
+                    '</h5> <p>'+
                     record.get("Detail")+
                     '</p> </div> </div>'
         $(".container").append(new_event);
