@@ -197,7 +197,7 @@
             aria-selected="false">Networking</a>
         </li>
       </ul>
-      <div class="tab-content" id="myTabContent">
+      <div class="tab-content" id="Positions">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           <div class="list-group">
             <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -228,6 +228,7 @@
               </div>
               <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
             </a>
+            
           </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
@@ -452,8 +453,8 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript"></script>
+
+  <script type="text/javascript" src="js/airtable.browser.js"></script>
 
   <script>
   fetch('https://api.github.com/repos/Chinese-Open-Science-Network/site/issues')
@@ -469,6 +470,24 @@
         $('.latest_article2 p').text(out[2]['body'].slice(0,150) + '...');
         $('.latest_article2 a').attr('href', out[2]['html_url']);
   }).catch(err => console.error(err));
+
+
+  var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
+
+  base('Table 1').select({
+      maxRecords: 4,
+      view: "Grid view"
+  }).eachPage(function page(records, fetchNextPage) {
+      $("#Positions .list-group a").each(function(index) {
+          $(this).find("h6").text(records[index].get('Lab'));
+          $(this).find("small").text(records[index].get('Created'));
+          $(this).find("p").text(records[index].get('Detail').slice(0,150) + '...');
+          $(this).attr('href', records[index].get('URL'));
+        });
+  }, function done(err) {
+      if (err) { console.error(err); return; }
+  });
   </script>
 
 </body>
