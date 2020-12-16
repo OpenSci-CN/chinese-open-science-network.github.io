@@ -41,19 +41,19 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Events</a>
+          <a class="nav-link" href="events.html">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Articles</a>
+          <a class="nav-link" href="https://github.com/Chinese-Open-Science-Network/site/issues">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
+          <a class="nav-link" href="#Members">About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Resources</a>
+          <a class="nav-link" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources">Resources</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Positions</a>
+          <a class="nav-link" href="positions.html">Positions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Network</a>
@@ -165,24 +165,23 @@
       </div>
     </div>
     <!-- <div class="col-md-1 "></div> -->
-    <div class="col-md-4">
-      <div class="card mb-4">
+    <div class="col-md-4 ">
+      <div class="card mb-4" id='Events'>
         <div class="card-header primary-color white-text">
           Forthcoming Events
         </div>
         <div class="list-group ">
           <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
-            <p class="mb-2">Multi-center diffusion MRI studies: problems, solutions, and open challenges</p>
-            <small class="text-muted">Chantal Tax Dec 15th 2020</small>
+            <p class="mb-2"></p>
+            <small class="text-muted"></small>
           </a>
           <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
-            <p class="mb-2">Uncovering the organization of semantic knowledge and applications for Alzheimer's disease</p>
-            <small class="text-muted">Jeffrey Zemla Jan 08th 2021</small>
+            <p class="mb-2"></p>
+            <small class="text-muted"></small>
           </a>
           <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
-            <p class="mb-2">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-              blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
+            <p class="mb-2"></p>
+            <small class="text-muted"></small>
           </a>
         </div>
       </div>
@@ -202,31 +201,31 @@
           <div class="list-group">
             <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
-                <small>3 days ago</small>
+                <h6 class="mb-2 h6"></h6>
+                <small></small>
               </div>
-              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+              <p class="mb-2"></p>
             </a>
             <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
-                <small>3 days ago</small>
+                <h6 class="mb-2 h6"></h6>
+                <small></small>
               </div>
-              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+              <p class="mb-2"></p>
             </a>
             <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
-                <small>3 days ago</small>
+                <h6 class="mb-2 h6"></h6>
+                <small></small>
               </div>
-              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+              <p class="mb-2"></p>
             </a>
             <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6">Gillan lab, Trinity College Dublin</h6>
-                <small>3 days ago</small>
+                <h6 class="mb-2 h6"></h6>
+                <small></small>
               </div>
-              <p class="mb-2">Two postdoctoral positions in computational psychiatry</p>
+              <p class="mb-2"></p>
             </a>
             
           </div>
@@ -247,7 +246,7 @@
     </div>
   </div>
 
-<h4 class="text-center">Executive Committees</h4>
+<h4 class="text-center" id='Members'>Executive Committees</h4>
 <hr>
 <!-- Card deck -->
 <div class="card-deck">
@@ -471,7 +470,7 @@
         $('.latest_article2 a').attr('href', out[2]['html_url']);
   }).catch(err => console.error(err));
 
-
+  // Positions
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
 
@@ -484,6 +483,22 @@
           $(this).find("small").text(records[index].get('Created'));
           $(this).find("p").text(records[index].get('Detail').slice(0,150) + '...');
           $(this).attr('href', records[index].get('URL'));
+        });
+  }, function done(err) {
+      if (err) { console.error(err); return; }
+  });
+
+  // Events
+  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+
+  base('Table 1').select({
+      maxRecords: 3,
+      view: "Grid view"
+  }).eachPage(function page(records, fetchNextPage) {
+      $("#Events .list-group a").each(function(index) {
+          $(this).find("p").text(records[index].get('Title'));
+          $(this).find("small").text(records[index].get('Speaker')+'  '+records[index].get('Date').slice(0,10)+' '+records[index].get('Date').slice(11,16));
+          // $(this).attr('href', records[index].get('URL'));
         });
   }, function done(err) {
       if (err) { console.error(err); return; }
