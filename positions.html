@@ -182,6 +182,7 @@
 
     base('Table 1').select({
        maxRecords: 10,
+       filterByFormula: "NOT({Status} = 'Close')",
        view: "Grid view"
      }).eachPage(function page(records, fetchNextPage) {
         const grid = new gridjs.Grid({
@@ -196,8 +197,24 @@
               };
             }
           },
-          'Place',
-          'Tags',
+          { 
+            name: 'Location',
+            attributes: (cell) => {
+              return {
+                'data-cell-content': cell,
+                'style': 'width: 80px'
+              };
+            }
+          },
+          { 
+            name: 'Position',
+            attributes: (cell) => {
+              return {
+                'data-cell-content': cell,
+                'style': 'width: 70px'
+              };
+            }
+          },
           { 
             name: 'Created',
             attributes: (cell) => {
@@ -208,11 +225,11 @@
             }
           },
           { 
-            name: 'Status',
+            name: 'URL',
             attributes: (cell) => {
               return {
                 'data-cell-content': cell,
-                'style': 'width: 60px'
+                'style': 'width: 40px'
               };
             }
           },
@@ -223,7 +240,7 @@
           row.get('Place'),
           row.get('Tags').join(", "),
           row.get('Created'),
-          row.get('Status'),
+          (row.get("URL")!=undefined ? gridjs.html('<a class="" href='+row.get("URL")+'>Link</a>') : ''),
           row.get('Detail'),
         ]),
 
