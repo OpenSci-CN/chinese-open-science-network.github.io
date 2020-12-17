@@ -184,9 +184,9 @@
        view: "Grid view"
      }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        new_event = '<div class="card mb-4 "> <div class="card-header">'+
+        new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+
                     record.get('Date').slice(0,10)+',  '+record.get('Date').slice(11,16)+
-                    '</div> <div class="card-body"> <h5><span class="badge bg-primary">'+
+                    '</strong></div> <div class="card-body"> <h5 style="margin-top:-10px;margin-bottom:5px"><span class="badge bg-primary">'+
                     record.get("Topics").join(', ')+
                     '</span><h5><h4 class="card-title">'+
                     record.get("Title")+
