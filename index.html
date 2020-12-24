@@ -9,28 +9,26 @@
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Google Fonts Roboto -->
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"> -->
   <link rel="stylesheet" href="css/google_fonts.css">
+  <!-- Google Fonts Roboto -->
+<!--   <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+  /> -->
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="css/mdb.min.css">
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
   <!-- Custom styles -->
+  <link rel="stylesheet" href="css/custom.css" />
   <style>
-    .avatar{
-      width: 150px;
-      height: 150px;
-    }
   </style>
 </head>
 <body>
 <header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark primary-color mb-4">
-    <a class="navbar-brand" href="#"><strong>Chinese Open Science Network</strong></a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white mb-4">
+    <a class="navbar-brand ml-5" href="#"><strong>COSN</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,37 +36,42 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="events.html">Events</a>
+          <a class="nav-link text-white" href="events.html">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Chinese-Open-Science-Network/site/issues">Articles</a>
+          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/issues">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#Members">About us</a>
+          <a class="nav-link text-white" href="#Members">About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources">Resources</a>
+          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources">Resources</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="positions.html">Positions</a>
+          <a class="nav-link text-white" href="positions.html">Positions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="gathering.html">Gathering</a>
+          <a class="nav-link text-white" href="gathering.html">Gathering</a>
         </li>
 
       </ul>
-      <ul class="navbar-nav nav-flex-icons">
+      
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="https://airtable.com/shrcjtXDtoDHf6ufp" class="text-white">Add event</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="https://airtable.com/shrAGycGtUYkmCO3m" class="text-white">Add position</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-5"><a href="https://airtable.com/shrvY9CGvKPV7Eccz" class="text-white">Add gathering</a></button>
+
+      <ul class="navbar-nav nav-flex-icons mr-5">
         <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/Chinese-Open-Science-Network" class="nav-link text-white"><i class="fab fa-github"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-twitter"></i></a>
+          <a class="nav-link text-white"><i class="fab fa-twitter"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-youtube"></i></a>
+          <a class="nav-link text-white"><i class="fab fa-youtube"></i></a>
         </li>
       </ul>
     </div>
@@ -79,120 +82,134 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="row mr-1">
-        <div class="jumbotron">
-            <h2 class="h1-responsive">Chinese Open Science Network</h2>
-            <p class="lead">The Transcontinental Computational Psychiatry Workgroup (TCPW) organizes a monthly web-based meeting and a computational psychiatry satellite meeting with the Society of Biological Psychiatry. </p>
-            <hr class="my-2">
-            <h5>You should know...</h5>
-            <p>We hope to foster discussion and exchange between those involved in computational psychiatry—a rapidly growing, highly multidisciplinary field.
-            </p>
-            <a class="btn btn-primary btn-lg" role="button">Learn more</a>
-            <a class="btn btn-primary btn-lg" role="button">About us</a>
+      <div class="card introduction mb-4">
+        <div class="card-body m-3">
+          <h2 class="h1-responsive">Chinese Open Science Network</h2>
+          <p class="lead">The Transcontinental Computational Psychiatry Workgroup (TCPW) organizes a monthly web-based meeting and a computational psychiatry satellite meeting with the Society of Biological Psychiatry. </p>
+          <hr class="my-2">
+          <h5>You should know...</h5>
+          <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.
+          </p>
+          <span>
+            <!-- <a class="btn bg-primary btn-lg text-white" role="button">Learn more</a> -->
+            <a href="#Members" class="btn bg-primary btn-lg text-white" role="button">About us</a>
+          </span>
         </div>
       </div>
 
-      <div class="row mr-1">
-        <div class="card mb-4">
-          <div class="card-body latest_article0">
-            <h5 class="card-subtitle mb-2 text-muted">Latest Article</h5>
-            <h4 class="card-title">Latest Article</h4>
+      <div class="card mb-4">
+        <div class="card-body m-3 latest_article0">
+          <h5 class="card-subtitle mb-2 text-muted">Latest Article</h5>
+          <h4 class="card-title">Latest Article</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          <button type="button" class="btn btn-outline-primary btn-md"><a href=''>Read more</a></button>
+        </div>
+      </div>
+
+      <!-- Card group -->
+      <div class="card-group">
+
+        <!-- Card -->
+        <div class="card mb-4 ">
+
+          <!--Card content-->
+          <div class="card-body m-2 latest_article1">
+
+            <!--Title-->
+            <h4 class="card-title">Article 2</h4>
+            <!--Text-->
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            <button type="button" class="btn btn-outline-primary btn-md"><a href=''>Read more</a></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="row  mr-1">
-        <!-- Card deck -->
-        <div class="card-deck">
-
-          <!-- Card -->
-          <div class="card mb-4">
-
-            <!--Card content-->
-            <div class="card-body latest_article1">
-
-              <!--Title-->
-              <h4 class="card-title">Article 2</h4>
-              <!--Text-->
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              <a href="#!" class="card-link">Read more</a>
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <!-- <button type="button" class="btn btn-outline-primary btn-md"><a href=''>Read more</a></button> -->
-
-            </div>
+            <a href="#!" class="card-link">Read more</a>
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <!-- <button type="button" class="btn btn-outline-primary btn-md"><a href=''>Read more</a></button> -->
 
           </div>
-          <!-- Card -->
-
-          <!-- Card -->
-          <div class="card mb-4 ">
-
-            <!--Card content-->
-            <div class="card-body latest_article2">
-
-              <!--Title-->
-              <h4 class="card-title">Article 3</h4>
-              <!--Text-->
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              <a href="#!" class="card-link">Read more</a>
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <!-- <button type="button" class="btn btn-outline-primary btn-md">Read more</button> -->
-
-            </div>
-
-          </div>
-          <!-- Card -->
-
-          <!-- Card -->
-          <div class="card mb-4">
-
-            <!--Card content-->
-            <div class="card-body d-flex align-items-center text-center">
-              <h4 class="card-title font-weight-bolder"><a href="https://github.com/Chinese-Open-Science-Network/site/issues">More articles</a></h4>
-              <!-- <>More articles -->
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <!-- <button type="button" class="btn btn-outline-primary btn-lg">More articles</button> -->
-
-            </div>
-
-          </div>
-          <!-- Card -->
 
         </div>
-        <!-- Card deck -->
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card mb-4  mx-3">
+
+          <!--Card content-->
+          <div class="card-body m-2 latest_article2">
+
+            <!--Title-->
+            <h4 class="card-title">Article 3</h4>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <a href="#!" class="card-link">Read more</a>
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <!-- <button type="button" class="btn btn-outline-primary btn-md">Read more</button> -->
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card mb-4">
+
+          <!--Card content-->
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h4 class="card-title font-weight-bolder"><a href="https://github.com/Chinese-Open-Science-Network/site/issues">More articles</a></h4>
+            <!-- <>More articles -->
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <!-- <button type="button" class="btn btn-outline-primary btn-lg">More articles</button> -->
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
       </div>
+      <!-- Card group -->
     </div>
+
 
     <div class="col-md-4 ">
       <div class="card mb-4" id='Events'>
-        <div class="card-header primary-color white-text">
-          Forthcoming Events
+        <div class="card-header bg-primary text-white fs-6">
+          Forthcoming Events 
+          <button type="button" class="btn btn-light btn-rounded btn-sm float-end"><a href="https://airtable.com/shrel07ziEqV882kv/tbljjWLoRerJePlmF">Calender</a></button>
         </div>
         <div class="list-group ">
           <a href="events.html" class="list-group-item list-group-item-action flex-column align-items-start">
+            <time class="icon float-start mr-3">
+              <strong class="date-month"></strong>
+              <span class="date-day"></span>
+            </time>
             <p class="mb-2"></p>
-            <small class="text-muted"></small>
+            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
+            
           </a>
           <a href="events.html" class="list-group-item list-group-item-action flex-column align-items-start">
+            <time class="icon float-start mr-3">
+              <strong class="date-month"></strong>
+              <span class="date-day"></span>
+            </time>
             <p class="mb-2"></p>
-            <small class="text-muted"></small>
+            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
           </a>
           <a href="events.html" class="list-group-item list-group-item-action flex-column align-items-start">
+            <time class="icon float-start mr-3">
+              <strong class="date-month"></strong>
+              <span class="date-day"></span>
+            </time>
             <p class="mb-2"></p>
-            <small class="text-muted"></small>
+            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
           </a>
         </div>
       </div>
 
+
       <ul class="nav nav-tabs font-weight-bold" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="positions-tab" data-toggle="tab" href="#positions" role="tab" aria-controls="positions"
+          <a class="nav-link fs-6 active" id="positions-tab" data-mdb-toggle="tab" href="#positions" role="tab" aria-controls="positions"
             aria-selected="true">Positions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="gathering-tab" data-toggle="tab" href="#gathering" role="tab" aria-controls="gathering"
+          <a class="nav-link fs-6" id="gathering-tab" data-mdb-toggle="tab" href="#gathering" role="tab" aria-controls="gathering"
             aria-selected="false">Gathering</a>
         </li>
       </ul>
@@ -201,28 +218,28 @@
           <div class="list-group">
             <a href="positions.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="positions.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="positions.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="positions.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
@@ -233,28 +250,28 @@
         <div class="tab-pane fade" id="gathering" role="tabpanel" aria-labelledby="gathering-tab">
           <a href="gathering.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="gathering.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="gathering.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
             </a>
             <a href="gathering.html" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-2 h6"></h6>
+                <h6 class="mb-2 fw-bold"></h6>
                 <small></small>
               </div>
               <p class="mb-2"></p>
@@ -265,18 +282,20 @@
       </div>      
     </div>
   </div>
+</div>
 
 <h4 class="text-center" id='Members'>Executive Committees</h4>
 <hr>
-<!-- Card deck -->
-<div class="card-deck">
+<!-- Card group -->
+<div class="row row-cols-1 row-cols-md-3 mx-5">
 
   <!-- Card -->
-  <div class="card mb-4">
+  <div class="col">
+  <div class="card mb-4 mx-2">
 
     <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/HU, Chuan-Peng.jpg"
         alt="Card image cap">
       <a href="#!">
         <div class="mask rgba-white-slight"></div>
@@ -284,25 +303,51 @@
     </div>
 
     <!--Card content-->
-    <div class="card-body">
-
+    <div class="card-body text-center">
       <!--Title-->
-      <h4 class="card-title">Card title</h4>
-      <!--Text-->
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-
+      <h4 class="card-title"><strong>HU, Chuan-Peng</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">Associate Professor, Nanjing Normal University, Nanjing, China</strong></p>
+      
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              <p class="card-text">An enthusiast of open science.</p>
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-mdb-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              Dr. Hu Chuan-Peng is an associate Professor at School of Psychology, Nanjing Normal University. After getting his Ph.D. degree at Tsinghua University, Beijing, China, in 2017, he worked as a postdoc at the Leibniz Institute for Resilience Research (LIR), Mainz, Germany until October, 2020. His research interest includes reproducibility, Bayesian hierarchical modelling, and social perceptual decision-making. He conducted a series of meta-researches to understand the research culture among Chinese researchers. Also, he is the first ambassador of the Center for Open Science in East Asia. He actively participated in large-scale international collaborative projects, e.g., Psychological Science Accelerator (PSA), Neuroimaging AnalysisReplication and Prediction Study (NARPS). He co-found the Chinese Association for Psychological & Brain Science (CAPBS), an association for Chinese researchers based in Europe. Please visit www.huchuanpeng.com for more information.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+  </div>
   </div>
   <!-- Card -->
 
   <!-- Card -->
-  <div class="card mb-4">
+  <div class="col">
+  <div class="card mb-4 mx-2">
 
     <!--Card image-->
-    <div class="view overlay">
-      <img class="img-fluid z-depth-1 rounded-circle mx-auto mt-3 avatar" src="img/jinbiaoyang.jpg"
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/GENG, Haiyang.jpg"
         alt="Card image cap">
       <a href="#!">
         <div class="mask rgba-white-slight"></div>
@@ -310,51 +355,27 @@
     </div>
 
     <!--Card content-->
-    <div class="card-body  text-center">
+    <div class="card-body text-center">
 
       <!--Title-->
-      <h4 class="card-title"><strong>Jinbiao Yang</strong></h4>
+      <h4 class="card-title"><strong>GENG, Haiyang</strong></h4>
       <hr><!-- Subtitle -->
-      <p class="card-text text-primary "><strong class="text-primary">MPI for Psycholinguistics</strong></p>
+      <p class="card-text text-primary "><strong class="text-primary">Post-doc, The University of Hong Kong, Hongkong, China</strong></p>
       <p class="card-text">A lazy PhD Student. <a href="https://github.com/ray306"><i class="fab fa-github"></i></a></p>
 
     </div>
 
   </div>
-  <!-- Card -->
-
-  <!-- Card -->
-  <div class="card mb-4">
-
-    <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
-        alt="Card image cap">
-      <a href="#!">
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-
-    <!--Card content-->
-    <div class="card-body">
-
-      <!--Title-->
-      <h4 class="card-title">Card title</h4>
-      <!--Text-->
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-
-    </div>
-
   </div>
   <!-- Card -->
 
   <!-- Card -->
-  <div class="card mb-4">
+  <div class="col">
+  <div class="card mb-4 mx-2">
 
     <!--Card image-->
-    <div class="view overlay">
-      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/Wang, Qing.jpg"
         alt="Card image cap">
       <a href="#!">
         <div class="mask rgba-white-slight"></div>
@@ -362,26 +383,195 @@
     </div>
 
     <!--Card content-->
-    <div class="card-body">
+    <div class="card-body text-center">
 
       <!--Title-->
-      <h4 class="card-title">Card title</h4>
-      <!--Text-->
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
+      <h4 class="card-title"><strong>Wang, Qing</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">Postdoc Fellow, Montreal Neurological Institute, McGill University, Montreal, Canada</strong></p>
+      <p class="card-text">A lazy PhD Student. <a href="https://github.com/ray306"><i class="fab fa-github"></i></a></p>
 
     </div>
 
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/ZHANG, Lei.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>ZHANG, Lei</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">University of Vienna</strong></p>
+      <p class="card-text">A lazy PhD Student. <a href="https://github.com/ray306"><i class="fab fa-github"></i></a></p>
+
+    </div>
+
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/YANG, Jinbiao.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>YANG, Jinbiao</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">PhD Candidate, Max Planck Institute for Psycholinguistics, the Netherlands</strong></p>
+      <p class="card-text">Lazy but curious. <a href="https://github.com/ray306"><i class="fab fa-github"></i></a></p>
+
+    </div>
+
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/JIN, Haiyang.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>JIN, Haiyang</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">Postdoctoral associate, New York University Abu Dhabi, Abu Dhabi, United Arab Emirates</strong></p>
+      <p class="card-text">A Supporter of the "New Statistics"</p>
+
+    </div>
+
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/JIN, Shuxian.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>JIN, Shuxian</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">PhD Candidate, Vrije Universiteit Amsterdam, Amsterdam, the Netherlands</strong></p>
+      <p class="card-text">An explorer of interdependence.</p>
+
+    </div>
+
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/WANG, Xindi.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>WANG, Xindi</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">MPI for Psycholinguistics</strong></p>
+      <p class="card-text">wo shi yi ge ruo bi</p>
+
+    </div>
+
+  </div>
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="col">
+  <div class="card mb-4 mx-2">
+
+    <!--Card image-->
+    <div class="view overlay text-center">
+      <img class="rounded-circle mt-3 avatar" src="img/ZHANG, Han.jpg"
+        alt="Card image cap">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body text-center">
+
+      <!--Title-->
+      <h4 class="card-title"><strong>ZHANG, Han</strong></h4>
+      <hr><!-- Subtitle -->
+      <p class="card-text text-primary "><strong class="text-primary">Research Fellow, National University of Singapore, Singapore, Singapore</strong></p>
+      <p class="card-text">A working mom.</p>
+
+    </div>
+
+  </div>
   </div>
   <!-- Card -->
 
 </div>
-<!-- Card deck -->
+<!-- Card group -->
 
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 primary-color">
+<footer class="page-footer font-small blue pt-4 bg-primary text-white">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -394,7 +584,7 @@
 
         <!-- Content -->
         <h5 class="text-uppercase">CHINESE OPEN SCIENCE</h5>
-        <p>We hope to foster discussion and exchange between those involved in computational psychiatry—a rapidly growing, highly multidisciplinary field.</p>
+        <p>We hope to foster discussion and exchange between those involved in computational psychiatry鈥攁 rapidly growing, highly multidisciplinary field.</p>
 
       </div>
       <!-- Grid column -->
@@ -409,16 +599,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!" class="text-white">Link 1</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!" class="text-white">Link 2</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
+            <a href="#!" class="text-white">Link 3</a>
           </li>
           <li>
-            <a href="#!">Link 4</a>
+            <a href="#!" class="text-white">Link 4</a>
           </li>
         </ul>
 
@@ -433,16 +623,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!" class="text-white">Link 1</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!" class="text-white">Link 2</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
+            <a href="#!" class="text-white">Link 3</a>
           </li>
           <li>
-            <a href="#!">Link 4</a>
+            <a href="#!" class="text-white">Link 4</a>
           </li>
         </ul>
 
@@ -456,23 +646,16 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a> </br>Designed by: <a href="https://github.com/ray306" target="_blank">Jinbiao Yang</a> @ Chinese Open Science</a>
+  <div class="footer-copyright text-center py-3" style="color: rgba(255,255,255,0.6); background-color: rgba(0, 0, 0, 0.2)">© 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a> </br>Designed by: <a class="text-white" href="https://github.com/ray306" target="_blank">Jinbiao Yang</a> @ Chinese Open Science</a>
   </div>
   <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
 
-  <!-- jQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
-
   <script type="text/javascript" src="js/airtable.browser.js"></script>
 
   <script>
@@ -490,13 +673,36 @@
         $('.latest_article2 a').attr('href', out[2]['html_url']);
   }).catch(err => console.error(err));
 
-  // Positions
+  // Events
+  var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   var Airtable = require('airtable');
+  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+
+  base('Table 1').select({
+      maxRecords: 3,
+      view: "Grid view",
+      filterByFormula: "IS_AFTER({Date}, TODAY())",
+      sort: [{field: "Date", direction: "asc"}]
+  }).eachPage(function page(records, fetchNextPage) {
+      $("#Events .list-group a").each(function(index) {
+          $(this).find("p").text(records[index].get('Title'));
+          $(this).find(".name").text(records[index].get('Speaker'));
+          $(this).find(".date").text(records[index].get('Date').slice(0,10)+' '+records[index].get('Date').slice(11,16));
+          $(this).find(".date-month").text(month[parseInt(records[index].get('Date').slice(5,7))-1]);
+          $(this).find(".date-day").text(records[index].get('Date').slice(8,10));
+          // $(this).attr('href', records[index].get('URL'));
+        });
+  }, function done(err) {
+      if (err) { console.error(err); return; }
+  });
+
+  // Positions
   var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
 
   base('Table 1').select({
       maxRecords: 4,
-      view: "Grid view"
+      view: "Grid view",
+      sort: [{field: "Created", direction: "desc"}]
   }).eachPage(function page(records, fetchNextPage) {
       $("#positions .list-group a").each(function(index) {
           $(this).find("h6").text(records[index].get('Lab'));
@@ -508,21 +714,6 @@
       if (err) { console.error(err); return; }
   });
 
-  // Events
-  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
-
-  base('Table 1').select({
-      maxRecords: 3,
-      view: "Grid view"
-  }).eachPage(function page(records, fetchNextPage) {
-      $("#Events .list-group a").each(function(index) {
-          $(this).find("p").text(records[index].get('Title'));
-          $(this).find("small").text(records[index].get('Speaker')+'  '+records[index].get('Date').slice(0,10)+' '+records[index].get('Date').slice(11,16));
-          // $(this).attr('href', records[index].get('URL'));
-        });
-  }, function done(err) {
-      if (err) { console.error(err); return; }
-  });
   </script>
 
 </body>
