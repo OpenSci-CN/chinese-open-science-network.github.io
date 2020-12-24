@@ -22,57 +22,55 @@
 
   <link rel="stylesheet" href="css/mermaid.min.css" />
   <!-- Custom styles -->
+  <link rel="stylesheet" href="css/custom.css" />
   <style>
-    .bg-primary {
-      background-color: #4285f4 !important;
-    }
   </style>
 </head>
 <body>
 <header>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white mb-4">
-    <a class="navbar-brand" href="#"><strong>Chinese Open Science Network</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand ml-5" href="#"><strong>COSN</strong></a>
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="http://open-sci.cn">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="http://open-sci.cn#Members">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="http://event.open-sci.cn">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/issues" target="_blank">Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources" target="_blank">Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="http://position.open-sci.cn">Positions</a>
+        </li>
         <li class="nav-item active">
-          <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="events.html">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/issues">Articles</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="index.html#Members">About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources">Resources</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="positions.html">Positions</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-white" href="#">Gathering</a>
         </li>
-
       </ul>
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link text-white"><i class="fab fa-github"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white"><i class="fab fa-twitter"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white"><i class="fab fa-youtube"></i></a>
-        </li>
-      </ul>
+      
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addevent.open-sci.cn" target="_blank" class="text-white">Add event</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addposition.open-sci.cn" target="_blank" class="text-white">Add position</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-5"><a href="http://addgathering.open-sci.cn" target="_blank" class="text-white">Add gathering</a></button>
     </div>
   </nav>
 
