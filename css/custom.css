@@ -27,6 +27,9 @@
 .tab-content p{
   font-weight: 300;
 }
+.accordion-button:after {
+    content: "\f078";
+}
 .introduction h2,h5,p{
   font-weight: 300;
 }
@@ -36,7 +39,7 @@
 }
 time.icon
 {
-  font-size: 0.5em; /* change icon size */
+  font-size: 0.5em; 
   display: block;
   position: relative;
   width: 7em;

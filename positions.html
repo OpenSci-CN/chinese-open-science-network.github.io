@@ -243,7 +243,7 @@
           row.get('Tags').join(", "),
           row.get('Created'),
           (row.get("URL")!=undefined ? gridjs.html('<a class="" href='+row.get("URL")+'>Link</a>') : ''),
-          (row.get("Detail").length<200 ? row.get("Detail") : gridjs.html(row.get("Detail").slice(1,200)+'... <a class="btn btn-primary btn-sm" data-mdb-toggle="collapse" href="#more" role="button" aria-expanded="false" aria-controls="more"> See More </a> <div class="collapse mt-3" id="more">'+row.get("Detail").slice(200,)+'</div>')),
+          (row.get("Detail").length<200 ? row.get("Detail") : gridjs.html(row.get("Detail").slice(1,200)+'... <a class="btn btn-primary btn-sm" data-mdb-toggle="collapse" href="#more'+row.get("ID")+'" role="button" aria-expanded="false" aria-controls="more"> See More </a> <div class="collapse mt-3" id="more'+row.get("ID")+'">'+row.get("Detail").slice(200,)+'</div>')),
           ,
         ]),
 
