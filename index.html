@@ -165,7 +165,6 @@
       <!-- Card group -->
     </div>
 
-
     <div class="col-md-4 ">
       <div class="card mb-4" id='Events'>
         <div class="card-header bg-primary text-white fs-6">
@@ -179,8 +178,7 @@
               <span class="date-day"></span>
             </time>
             <p class="mb-2"></p>
-            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
-            
+            <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
           </a>
           <a href="http://event.open-sci.cn/" class="list-group-item list-group-item-action flex-column align-items-start">
             <time class="icon float-start mr-3">
@@ -188,7 +186,7 @@
               <span class="date-day"></span>
             </time>
             <p class="mb-2"></p>
-            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
+            <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
           </a>
           <a href="http://event.open-sci.cn/" class="list-group-item list-group-item-action flex-column align-items-start">
             <time class="icon float-start mr-3">
@@ -196,7 +194,7 @@
               <span class="date-day"></span>
             </time>
             <p class="mb-2"></p>
-            <small class="name text-muted"></small> <small class="date text-muted float-end"></small>
+            <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
           </a>
         </div>
       </div>
@@ -851,6 +849,7 @@
   var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   var Airtable = require('airtable');
   var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+  function pad(a,b){return(1e6+a+"").slice(-b)}
 
   base('Table 1').select({
       maxRecords: 3,
@@ -861,10 +860,12 @@
       $("#Events .list-group a").each(function(index) {
           $(this).find("p").text(records[index].get('Title'));
           $(this).find(".name").text(records[index].get('Speaker'));
-          $(this).find(".date").text(records[index].get('Date').slice(0,10)+' '+records[index].get('Date').slice(11,16));
-          $(this).find(".date-month").text(month[parseInt(records[index].get('Date').slice(5,7))-1]);
-          $(this).find(".date-day").text(records[index].get('Date').slice(8,10));
-          // $(this).attr('href', records[index].get('URL'));
+          date = new Date(records[index].get('Date'));
+          $(this).find(".date").text(date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2));
+          $(this).find(".date-month").text(month[parseInt(date.getMonth())]);
+          $(this).find(".date-day").text(date.getDate());
+          // $(this).find(".date-week").text(date.getDay());
+          records[index].get("URL")!=undefined ? $(this).attr('href', records[index].get('URL')) : undefined;
         });
   }, function done(err) {
       if (err) { console.error(err); return; }
