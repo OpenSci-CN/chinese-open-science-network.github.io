@@ -150,6 +150,7 @@
   <script>
     var Airtable = require('airtable');
     var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+    function pad(a,b){return(1e6+a+"").slice(-b)}
 
     base('Table 1').select({
        maxRecords: 10,
@@ -157,8 +158,11 @@
        sort: [{field: "Created", direction: "desc"}]
      }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
+        date = new Date(record.get('Date'));
+        url = record.get("URL")!=undefined ? '<button type="button" class="btn"><a href="'+record.get("URL")+'" target="_blank">More</a></button>' : ''
+        console.log(url)
         new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+
-                    record.get('Date').slice(0,10)+',  '+record.get('Date').slice(11,16)+
+                    date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)+
                     '</strong></div> <div class="card-body"> <h5 style="margin-top:-5px;margin-bottom:10px"><span class="badge bg-primary">'+
                     record.get("Topics").join(', ')+
                     '</span><h5><h4 class="card-title">'+
@@ -169,7 +173,8 @@
                     record.get("Location")+
                     '</h5> <p>'+
                     record.get("Detail")+
-                    '</p> </div> </div>'
+                    '</p>'+url+' </div> </div>'
+                    
         $(".container").append(new_event);
       })
      }, function done(err) {
