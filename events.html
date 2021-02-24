@@ -208,7 +208,13 @@
       show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
     }
 
-    show_all_events()
+    if (new URLSearchParams(window.location.search).get('opentalk')){
+      show_opentalk_events();
+    }
+    else{
+      show_all_events();
+    }
+
 
   </script>
 
