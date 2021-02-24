@@ -170,7 +170,7 @@
     <div class="col-md-4 ">
       <div class="card mb-4" id='Events'>
         <div class="card-header bg-primary text-white fs-6">
-          Forthcoming Events 
+          <span>Forthcoming Events </span>
           <button type="button" class="btn btn-light btn-rounded btn-sm float-end mr-1" onclick="show_opentalk_events()">OpenTalk Only</button>
           <button type="button" class="btn btn-light btn-rounded btn-sm float-end mr-1"><a href="https://airtable.com/shrel07ziEqV882kv/tbljjWLoRerJePlmF">Calender</a></button>
         </div>
@@ -875,6 +875,7 @@
   }
   function show_opentalk_events(){
     show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
+    $('#Events .card-header span').text('OpenTalk Events');
   }
   show_all_events();
 
