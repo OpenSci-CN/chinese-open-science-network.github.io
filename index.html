@@ -171,10 +171,11 @@
       <div class="card mb-4" id='Events'>
         <div class="card-header bg-primary text-white fs-6">
           Forthcoming Events 
-          <button type="button" class="btn btn-light btn-rounded btn-sm float-end"><a href="https://airtable.com/shrel07ziEqV882kv/tbljjWLoRerJePlmF">Calender</a></button>
+          <button type="button" class="btn btn-light btn-rounded btn-sm float-end mr-1" onclick="show_opentalk_events()">OpenTalk Only</button>
+          <button type="button" class="btn btn-light btn-rounded btn-sm float-end mr-1"><a href="https://airtable.com/shrel07ziEqV882kv/tbljjWLoRerJePlmF">Calender</a></button>
         </div>
-        <div class="list-group ">
-          <a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="list-group">
+          <!-- <a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start">
             <time class="icon float-start mr-3">
               <strong class="date-month"></strong>
               <span class="date-day"></span>
@@ -182,22 +183,7 @@
             <p class="mb-2"></p>
             <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
           </a>
-          <a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start">
-            <time class="icon float-start mr-3">
-              <strong class="date-month"></strong>
-              <span class="date-day"></span>
-            </time>
-            <p class="mb-2"></p>
-            <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
-          </a>
-          <a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start">
-            <time class="icon float-start mr-3">
-              <strong class="date-month"></strong>
-              <span class="date-day"></span>
-            </time>
-            <p class="mb-2"></p>
-            <small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small>
-          </a>
+           -->
         </div>
       </div>
 
@@ -849,15 +835,26 @@
   // Events
   var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   var Airtable = require('airtable');
-  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+  var base_events = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
   function pad(a,b){return(1e6+a+"").slice(-b)}
 
-  base('Table 1').select({
-      maxRecords: 3,
-      view: "Grid view",
-      filterByFormula: "IS_AFTER({Date}, TODAY())",
-      sort: [{field: "Date", direction: "asc"}]
-  }).eachPage(function page(records, fetchNextPage) {
+
+  function show_events(filterFormula){
+
+    $("#Events .list-group").empty();
+
+    base_events('Table 1').select({
+        maxRecords: 3,
+        view: "Grid view",
+        filterByFormula: filterFormula,
+        sort: [{field: "Date", direction: "asc"}]
+    }).eachPage(function page(records, fetchNextPage) {
+
+      records.forEach(function(record) {
+        new_event = '<a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start"><time class="icon float-start mr-3"><strong class="date-month"></strong><span class="date-day"></span></time><p class="mb-2"></p><small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small></a>'
+        $("#Events .list-group").append(new_event);
+      });
+
       $("#Events .list-group a").each(function(index) {
           $(this).find("p").text(records[index].get('Title'));
           $(this).find(".name").text(records[index].get('Speaker'));
@@ -868,14 +865,24 @@
           // $(this).find(".date-week").text(date.getDay());
           records[index].get("URL")!=undefined ? $(this).attr('href', records[index].get('URL')) : undefined;
         });
-  }, function done(err) {
-      if (err) { console.error(err); return; }
-  });
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    });
+  }
+
+  function show_all_events(){
+    show_events('IS_AFTER({Date}, TODAY())');
+  }
+  function show_opentalk_events(){
+    show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
+  }
+  show_all_events();
+
 
   // Positions
-  var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
+  var base_positions = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
 
-  base('Table 1').select({
+  base_positions('Table 1').select({
       maxRecords: 4,
       view: "Grid view",
       sort: [{field: "Created", direction: "desc"}]
