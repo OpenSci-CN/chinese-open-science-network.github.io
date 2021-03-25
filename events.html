@@ -83,8 +83,8 @@
 
 
 <div class="container">
-  <button type="button" class="btn bg-primary btn-rounded text-white" onclick="show_opentalk_events()">Show OpenTalk Only</button>
-  <button type="button" class="btn bg-primary btn-rounded text-white" onclick="show_all_events()">Show All Events</button>
+  <button type="button" id="btn_opentalk" class="btn bg-primary btn-rounded text-white" onclick="show_opentalk_events()">Show OpenTalk Only</button>
+  <button type="button" id="btn_all" class="btn bg-primary btn-rounded text-white" onclick="show_all_events()">Show All Events</button>
   <div class="row mt-2" id='e_list'>
   </div>
 </div>
@@ -173,7 +173,7 @@
          maxRecords: 10,
          view: "Grid view",
         filterByFormula: filterFormula,
-         sort: [{field: "Created", direction: "desc"}]
+         sort: [{field: "Date", direction: "desc"}]
        }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
           date = new Date(record.get('Date'));
@@ -202,10 +202,14 @@
 
     function show_all_events(){
       show_events('TRUE()');
+      $("#btn_opentalk").removeClass('d-none');
+      $("#btn_all").addClass('d-none');
     }
 
     function show_opentalk_events(){
       show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
+      $("#btn_all").removeClass('d-none');
+      $("#btn_opentalk").addClass('d-none');
     }
 
     if (new URLSearchParams(window.location.search).get('opentalk')){
