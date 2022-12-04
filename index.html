@@ -65,19 +65,19 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="events.html">Events</a>
         </li>
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a class="nav-link text-white" href="positions.html">Positions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="gathering.html">Gathering</a>
-        </li>
+        </li> -->
 
       </ul>
       
       <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addevent.open-sci.cn" target="_blank" class="text-white">Add event</a></button>
-      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addposition.open-sci.cn" target="_blank" class="text-white">Add position</a></button>
+<!--       <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addposition.open-sci.cn" target="_blank" class="text-white">Add position</a></button>
       <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-5"><a href="http://addgathering.open-sci.cn" target="_blank" class="text-white">Add gathering</a></button>
-
+ -->
       
     </div>
   </nav>
@@ -188,7 +188,7 @@
       </div>
 
 
-      <ul class="nav nav-tabs font-weight-bold" id="myTab" role="tablist">
+<!--       <ul class="nav nav-tabs font-weight-bold" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link fs-6 active" id="positions-tab" data-mdb-toggle="tab" href="#positions" role="tab" aria-controls="positions"
             aria-selected="true">Positions</a>
@@ -264,7 +264,7 @@
             
           </div>
         </div>
-      </div>      
+      </div>  -->     
     </div>
   </div>
 </div>
@@ -491,22 +491,22 @@
 
 
   // Positions
-  var base_positions = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
+  // var base_positions = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('app8DGX3kOX4zctv3');
 
-  base_positions('Table 1').select({
-      maxRecords: 4,
-      view: "Grid view",
-      sort: [{field: "Created", direction: "desc"}]
-  }).eachPage(function page(records, fetchNextPage) {
-      $("#positions .list-group a").each(function(index) {
-          $(this).find("h6").text(records[index].get('Lab'));
-          $(this).find("small").text(records[index].get('Created'));
-          $(this).find("p").text(records[index].get('Detail').slice(0,150) + '...');
-          $(this).attr('href', records[index].get('URL'));
-        });
-  }, function done(err) {
-      if (err) { console.error(err); return; }
-  });
+  // base_positions('Table 1').select({
+  //     maxRecords: 4,
+  //     view: "Grid view",
+  //     sort: [{field: "Created", direction: "desc"}]
+  // }).eachPage(function page(records, fetchNextPage) {
+  //     $("#positions .list-group a").each(function(index) {
+  //         $(this).find("h6").text(records[index].get('Lab'));
+  //         $(this).find("small").text(records[index].get('Created'));
+  //         $(this).find("p").text(records[index].get('Detail').slice(0,150) + '...');
+  //         $(this).attr('href', records[index].get('URL'));
+  //       });
+  // }, function done(err) {
+  //     if (err) { console.error(err); return; }
+  // });
 
   </script>
 
