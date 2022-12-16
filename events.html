@@ -51,13 +51,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" href="index.html">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="index.html#Members">Members</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/issues" target="_blank">Articles</a>
+          <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/labels/Articles" target="_blank">Articles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="https://github.com/Chinese-Open-Science-Network/site/labels/Resources" target="_blank">Resources</a>
@@ -66,16 +66,12 @@
           <a class="nav-link text-white" href="#">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="positions.html">Positions</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="gathering.html">Gathering</a>
+          <a class="nav-link text-white" href="https://github.com/OpenSci-CN/chinese-open-science-network.github.io/labels/positions">Positions</a>
         </li>
       </ul>
       
-      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addevent.open-sci.cn" target="_blank" class="text-white">Add event</a></button>
-      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="http://addposition.open-sci.cn" target="_blank" class="text-white">Add position</a></button>
-      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-5"><a href="http://addgathering.open-sci.cn" target="_blank" class="text-white">Add gathering</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="https://github.com/OpenSci-CN/chinese-open-science-network.github.io/issues/new?labels=Calendars" target="_blank" class="text-white">Add event</a></button>
+      <button type="button" class="btn btn-outline-light btn-rounded btn-sm mr-2"><a href="https://github.com/OpenSci-CN/chinese-open-science-network.github.io/issues/new?labels=Positions,Articles" target="_blank" class="text-white">Add position</a></button>
     </div>
   </nav>
 
@@ -158,9 +154,6 @@
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
-
-  <script type="text/javascript" src="js/airtable.browser.js"></script>
-
   <script>
     function pad(a,b){return(1e6+a+"").slice(-b)}
 
@@ -170,7 +163,25 @@
           .then(res => res.json())
           .then((out) => {
             out.forEach(function(record) {
-              splited = record.body.split("\r\n");
+              regex = /Title:\r?\n(.*?)\r?\n/g
+              Title = regex.exec(record.body)[1];
+              regex = /Speaker:\r?\n(.*?)\r?\n/g
+              Speaker = regex.exec(record.body)[1];
+              regex = /Time:\r?\n(.*?)\r?\n/g
+              Time = regex.exec(record.body)[1];
+              regex = /URL:\r?\n(.*?)\r?\n/g
+              URL = regex.exec(record.body)[1];
+              regex = /Abstract:\r?\n(.*?)\r?\n/g
+              Abstract = regex.exec(record.body)[1];
+              regex = /\[原文地址\]\((.*?)\)/g
+              original = regex.exec(record.body)[1];
+              if (Title==null){Title=''};
+              if (Speaker==null){Speaker=''};
+              if (Time==null){Time=''};
+              if (URL==null){URL=''};
+              if (Abstract==null){Abstract=''};
+              if (original==null){original=''};
+
               labels = [];
               for (la of record.labels){
                 if (la.name!='Calendars'){
@@ -183,10 +194,10 @@
               }
 
               // the time info
-              time = splited[7];
-              if (time!=''){
+              // Time = splited[7];
+              if (Time!=''){
                 regex = /(\d+)[ \u4e00-\u9fff]*?(\d+)[ \u4e00-\u9fff]*?.*?(\d+):(\d+).*?(\d+):(\d+)/
-                match = regex.exec(time);
+                match = regex.exec(Time);
                 year = '';
                 for (i of labels){
                   if (i.includes('20')){
@@ -201,22 +212,22 @@
                 endTime_h = match[5];
                 endTime_m = match[6];
                 date = new Date(year, month-1, day, startTime_h, startTime_m);
-                time = date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)
+                Time = date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)
               }
               
               // url = '<button type="button" class="btn"><a href="'+splited[13].slice(7,-1)+'" target="_blank">More</a></button>'
 
-              new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+ time +
-                          '</strong></div> <a href="'+splited[13].slice(7,-1)+'"><div class="card-body"> <h5 style="margin-top:-5px;margin-bottom:10px"><span class="badge bg-primary">'+
+              new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+ Time +
+                          '</strong></div> <a href="'+original+'"><div class="card-body"> <h5 style="margin-top:-5px;margin-bottom:10px"><span class="badge bg-primary">'+
                           labels.join(', ')+
                           '</span><h5><h4 class="card-title">'+
-                          splited[3]+
+                          Title+
                           '</h4> <h5 class="card-title font-italic">'+
-                          splited[5]+
+                          Speaker+
                           '</h5> <h5 class="card-title font-italic">'+
-                          splited[9]+
+                          URL+
                           '</h5> <p>'+
-                          splited[11]+
+                          Abstract+
                           '</p></a></div> </div>'
                           
               $("#e_list").append(new_event);
