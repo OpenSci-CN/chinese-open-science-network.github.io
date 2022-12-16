@@ -420,10 +420,10 @@
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript" src="js/airtable.browser.js"></script>
+  <!-- <script type="text/javascript" src="js/airtable.browser.js"></script> -->
 
   <script>
-  fetch('https://api.github.com/repos/Chinese-Open-Science-Network/site/issues')
+  fetch('https://api.github.com/repos/Chinese-Open-Science-Network/site/issues?labels=Articles')
       .then(res => res.json())
       .then((out) => {
         $('.latest_article0 h4').text(out[0]['title']);
@@ -438,51 +438,77 @@
   }).catch(err => console.error(err));
 
   // Events
-  var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
-  var Airtable = require('airtable');
-  var base_events = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
+  var Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   function pad(a,b){return(1e6+a+"").slice(-b)}
 
 
-  function show_events(filterFormula){
+  function show_events(filter_condition){
 
     $("#Events .list-group").empty();
 
-    base_events('Table 1').select({
-        maxRecords: 3,
-        view: "Grid view",
-        filterByFormula: filterFormula,
-        sort: [{field: "Date", direction: "asc"}]
-    }).eachPage(function page(records, fetchNextPage) {
+    fetch('https://api.github.com/repos/Chinese-Open-Science-Network/site/issues?labels=Calendars')
+          .then(res => res.json())
+          .then((out) => {
+            out.forEach(function(record) {
+              splited = record.body.split("\r\n");
+              labels = [];
+              for (la of record.labels){
+                if (la.name!='Calendars'){
+                  labels.push(la.name);
+                }
+              }
 
-      records.forEach(function(record) {
-        new_event = '<a href="https://open-sci.cn/events.html" class="list-group-item list-group-item-action flex-column align-items-start"><time class="icon float-start mr-3"><strong class="date-month"></strong><span class="date-day"></span></time><p class="mb-2"></p><small class="name text-muted float-start"></small> <small class="date text-muted float-end"></small></a>'
-        $("#Events .list-group").append(new_event);
-      });
+              if (!((filter_condition == 'All') || (labels.includes(filter_condition)))){
+                return;
+              }
 
-      $("#Events .list-group a").each(function(index) {
-          $(this).find("p").text(records[index].get('Title'));
-          $(this).find(".name").text(records[index].get('Speaker'));
-          date = new Date(records[index].get('Date'));
-          $(this).find(".date").text(date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2));
-          $(this).find(".date-month").text(month[parseInt(date.getMonth())]);
-          $(this).find(".date-day").text(date.getDate());
-          // $(this).find(".date-week").text(date.getDay());
-          records[index].get("URL")!=undefined ? $(this).attr('href', records[index].get('URL')) : undefined;
-        });
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-    });
+              // the time info
+              time = splited[7];
+              if (time!=''){
+                regex = /(\d+)[ \u4e00-\u9fff]*?(\d+)[ \u4e00-\u9fff]*?.*?(\d+):(\d+).*?(\d+):(\d+)/
+                match = regex.exec(time);
+                year = '';
+                for (i of labels){
+                  if (i.includes('20')){
+                    year = i;
+                    break
+                  }
+                }
+                // console.log(year);
+                month = match[1];
+                day = match[2];
+                startTime_h = match[3];
+                startTime_m = match[4];
+                endTime_h = match[5];
+                endTime_m = match[6];
+                date = new Date(year, month-1, day, startTime_h, startTime_m);
+                time = date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)
+
+                if (date.getTime()<new Date("2022-12-1, 10:10:50").getTime()){
+                  throw 'Past events';
+                }
+              }
+
+              new_event = '<a href="'+splited[13].slice(7,-1)+'" class="list-group-item list-group-item-action flex-column align-items-start">\
+              <time class="icon float-start mr-3">\
+              <strong class="date-month">'+Months[parseInt(month-1)]+'</strong><span class="date-day">'+day+'</span></time>\
+              <p class="mb-2">'+splited[3]+'</p><small class="name text-muted float-start">'+splited[5]+'</small> \
+              <small class="date text-muted float-end"></small></a>'
+              $("#Events .list-group").append(new_event);
+
+            });
+      }).catch(err => console.error(err));
+
   }
 
   function show_all_events(){
-    show_events('IS_AFTER({Date}, TODAY())');
+    show_events('All');
     $('#Events .card-header span').text('Forthcoming Events');
     $('#Events .card-header button:first').attr('onclick',"show_opentalk_events()");
     $('#Events .card-header button:first').text('OpenTalk Only');
   }
   function show_opentalk_events(){
-    show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
+    show_events("OpenTalks");
     $('#Events .card-header span').text('OpenTalk Events');
     $('#Events .card-header button:first').attr('onclick',"show_all_events()");
     $('#Events .card-header button:first').text('All Events');

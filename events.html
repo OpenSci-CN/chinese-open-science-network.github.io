@@ -162,52 +162,77 @@
   <script type="text/javascript" src="js/airtable.browser.js"></script>
 
   <script>
-    var Airtable = require('airtable');
-    var base = new Airtable({apiKey: 'keyH8BSM9AqwRF3ci'}).base('appHcqdzInQBWW8qr');
     function pad(a,b){return(1e6+a+"").slice(-b)}
 
-    function show_events(filterFormula){
+    function show_events(filter_condition){
       $("#e_list").empty()
+      fetch('https://api.github.com/repos/Chinese-Open-Science-Network/site/issues?labels=Calendars')
+          .then(res => res.json())
+          .then((out) => {
+            out.forEach(function(record) {
+              splited = record.body.split("\r\n");
+              labels = [];
+              for (la of record.labels){
+                if (la.name!='Calendars'){
+                  labels.push(la.name);
+                }
+              }
 
-      base('Table 1').select({
-         maxRecords: 10,
-         view: "Grid view",
-        filterByFormula: filterFormula,
-         sort: [{field: "Date", direction: "desc"}]
-       }).eachPage(function page(records, fetchNextPage) {
-        records.forEach(function(record) {
-          date = new Date(record.get('Date'));
-          url = record.get("URL")!=undefined ? '<button type="button" class="btn"><a href="'+record.get("URL")+'" target="_blank">More</a></button>' : ''
-          console.log(url)
-          new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+
-                      date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)+
-                      '</strong></div> <div class="card-body"> <h5 style="margin-top:-5px;margin-bottom:10px"><span class="badge bg-primary">'+
-                      record.get("Topics").join(', ')+
-                      '</span><h5><h4 class="card-title">'+
-                      record.get("Title")+
-                      '</h4> <h5 class="card-title font-italic">'+
-                      record.get("Speaker")+
-                      '</h5> <h5 class="card-title font-italic">'+
-                      record.get("Location")+
-                      '</h5> <p>'+
-                      record.get("Detail")+
-                      '</p>'+url+' </div> </div>'
-                      
-          $("#e_list").append(new_event);
-        })
-       }, function done(err) {
-           if (err) { console.error(err); return; }
-       });
+              if (!((filter_condition == 'All') || (labels.includes(filter_condition)))){
+                return;
+              }
+
+              // the time info
+              time = splited[7];
+              if (time!=''){
+                regex = /(\d+)[ \u4e00-\u9fff]*?(\d+)[ \u4e00-\u9fff]*?.*?(\d+):(\d+).*?(\d+):(\d+)/
+                match = regex.exec(time);
+                year = '';
+                for (i of labels){
+                  if (i.includes('20')){
+                    year = i;
+                    break
+                  }
+                }
+                month = match[1];
+                day = match[2];
+                startTime_h = match[3];
+                startTime_m = match[4];
+                endTime_h = match[5];
+                endTime_m = match[6];
+                date = new Date(year, month-1, day, startTime_h, startTime_m);
+                time = date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)
+              }
+              
+              // url = '<button type="button" class="btn"><a href="'+splited[13].slice(7,-1)+'" target="_blank">More</a></button>'
+
+              new_event = '<div class="card mb-4 "> <div class="card-header"><strong>'+ time +
+                          '</strong></div> <a href="'+splited[13].slice(7,-1)+'"><div class="card-body"> <h5 style="margin-top:-5px;margin-bottom:10px"><span class="badge bg-primary">'+
+                          labels.join(', ')+
+                          '</span><h5><h4 class="card-title">'+
+                          splited[3]+
+                          '</h4> <h5 class="card-title font-italic">'+
+                          splited[5]+
+                          '</h5> <h5 class="card-title font-italic">'+
+                          splited[9]+
+                          '</h5> <p>'+
+                          splited[11]+
+                          '</p></a></div> </div>'
+                          
+              $("#e_list").append(new_event);
+
+            });
+      }).catch(err => console.error(err));
     }
 
     function show_all_events(){
-      show_events('TRUE()');
+      show_events('All');
       $("#btn_opentalk").removeClass('d-none');
       $("#btn_all").addClass('d-none');
     }
 
     function show_opentalk_events(){
-      show_events("FIND('OpenTalk', ARRAYJOIN({Topics}, ' ') ) > 0");
+      show_events('OpenTalks');
       $("#btn_all").removeClass('d-none');
       $("#btn_opentalk").addClass('d-none');
     }
