@@ -488,7 +488,8 @@
                 date = new Date(year, month-1, day, startTime_h, startTime_m);
                 Time = date.getFullYear()+'/'+pad(date.getMonth()+1,2)+'/'+pad(date.getDate(),2)+' '+pad(date.getHours(),2)+':'+pad(date.getMinutes(),2)
 
-                if (date.getTime()<new Date("2022-12-1, 10:10:50").getTime()){
+                // if (date.getTime()<new Date("12 01, 2022 10:10:50").getTime()){
+                if (date.getTime()<new Date().getTime()){
                   throw 'Past events';
                 }
               }
